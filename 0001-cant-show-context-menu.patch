@@ -1,0 +1,12 @@
+diff -uNr a/frame/item/pluginsitem.cpp b/frame/item/pluginsitem.cpp
+--- a/frame/item/pluginsitem.cpp	2022-06-28 11:00:27.000000000 +0800
++++ b/frame/item/pluginsitem.cpp	2022-07-10 14:35:45.789050910 +0800
+@@ -156,7 +156,7 @@
+ 
+     if (e->button() == Qt::RightButton) {
+         if (perfectIconRect().contains(e->pos())) {
+-            return (m_gsettings && (!m_gsettings->keys().contains("menuEnable") || m_gsettings->get("menuEnable").toBool())) ? showContextMenu() : void();
++            return (m_gsettings && m_gsettings->keys().contains("menuEnable") && !m_gsettings->get("menuEnable").toBool()) ? void() : showContextMenu();
+         }
+     }
+ 

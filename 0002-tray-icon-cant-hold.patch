@@ -1,0 +1,11 @@
+diff -uNr a/plugins/tray/snitraywidget.cpp b/plugins/tray/snitraywidget.cpp
+--- a/plugins/tray/snitraywidget.cpp	2022-06-28 11:00:27.000000000 +0800
++++ b/plugins/tray/snitraywidget.cpp	2022-07-10 14:37:30.265497918 +0800
+@@ -90,7 +90,6 @@
+     setOwnerPID(conn.interface()->servicePid(m_dbusService));
+ 
+     m_sniInter = new StatusNotifierItem(m_dbusService, m_dbusPath, QDBusConnection::sessionBus(), this);
+-    m_sniInter->setSync(false);
+     if (!m_sniInter->isValid()) {
+         qDebug() << "SNI dbus interface is invalid!" << m_dbusService << m_dbusPath << m_sniInter->lastError();
+         return;
